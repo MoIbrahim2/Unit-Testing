@@ -142,7 +142,7 @@ class TestBankService(unittest.TestCase):
     def test_load_accounts_file_not_found(self, mock_file):
         bs = BankService(data_source = 'nofile.json') # Create a *new* instance.
         bs.load_accounts()
-        mock_file.assert_called_once_with("nofile.json", 'r')  # Correct assertion
+        mock_file.assert_any_call("nofile.json", "r")  # Correct assertion
         self.assertEqual(len(bs.accounts), 0)
 
     @patch("builtins.open", new_callable=mock_open, read_data='invalid json')

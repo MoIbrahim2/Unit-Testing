@@ -11,7 +11,7 @@ class TestTaskService(unittest.TestCase):
     
     def setUp(self):
         """Set up test fixtures before each test method."""
-        self.service = TaskService(":memory:")  # Use in-memory SQLite database
+        self.service = TaskService("test_tasks.db")# Use in-memory SQLite database
         self.test_task = Task(
             title="Test Task",
             description="Test Description",
